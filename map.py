@@ -1,4 +1,5 @@
 import pygame as pg
+from settings import TILE_SIZE
 
 #for better visibility, we use _ for blancs and X for walls
 _ = False
@@ -29,20 +30,12 @@ class Map:
             for x, tile in enumerate(row):
                 if tile:
                     self.world_map[(x, y)] = tile
-    
-    """def draw(self):
-        [pg.draw.rect(
-            self.game.screen,   #where
-            'red',              #color        
-            (x * 64, y * 64, 64, 64)) 
-            for (x, y) in self.world_map
-        ]"""
         
     def draw(self):
         [pg.draw.rect(
             self.game.screen,   #where
             'red',              #color        
-            (pos[0] * 64, pos[1] * 64, 64, 64), #rectangle pos and dim
+            (pos[0] * TILE_SIZE, pos[1] * TILE_SIZE, TILE_SIZE, TILE_SIZE), #rectangle pos and dim
             2)                #border width 
             for pos in self.world_map
         ]

@@ -5,6 +5,7 @@ RES = WIDTH,HEIGHT = 1080,720
 HALF_WIDTH = WIDTH // 2
 HALF_HEIGHT = HEIGHT // 2
 FPS = 60
+TILE_SIZE = 64
 
 #raycasting config
 FOV = math.pi / 3

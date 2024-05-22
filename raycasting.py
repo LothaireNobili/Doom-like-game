@@ -72,19 +72,6 @@ class RayCasting:
                 color,
                 (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height)
             )
-            
-            
-            
-            
-            """  
-            #draw for debug
-            pg.draw.line(
-                self.game.screen,
-                'white',
-                (64 * ox, 64 * oy),
-                (64 * ox + 64 * depth * cos_a, 64 * oy + 64 * depth * sin_a),
-                2
-            )"""  
                         
             ray_angle += DELTA_ANGLE
     
