@@ -1,6 +1,16 @@
+import math
+
 #game main config
 RES = WIDTH,HEIGHT = 1080,720
 FPS = 60
+
+#raycasting config
+FOV = math.pi / 3
+HALF_FOV = FOV / 2
+NUM_RAYS = WIDTH // 2
+HALF_NUM_RAYS = NUM_RAYS // 2
+DELTA_ANGLE = FOV / NUM_RAYS
+MAX_DEPTH = 20 
 
 #player config
 PLAYER_INIT_POS = 1.5, 5
