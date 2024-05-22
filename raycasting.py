@@ -58,7 +58,25 @@ class RayCasting:
                 depth = depth_vert
             else:
                 depth = depth_hor
-                
+              
+            # remove fish eye effect
+            depth *= math.cos(self.game.player.angle - ray_angle)
+            
+            #projection
+            proj_height = SCREEN_DIST / (depth + 0.0001) #to avoid division by 0
+            
+            #draw walls
+            color = [255 / (1 + depth ** 2 * 0.002)] * 3
+            pg.draw.rect(
+                self.game.screen,
+                color,
+                (ray * SCALE, HALF_HEIGHT - proj_height // 2, SCALE, proj_height)
+            )
+            
+            
+            
+            
+            """  
             #draw for debug
             pg.draw.line(
                 self.game.screen,
@@ -66,7 +84,7 @@ class RayCasting:
                 (64 * ox, 64 * oy),
                 (64 * ox + 64 * depth * cos_a, 64 * oy + 64 * depth * sin_a),
                 2
-            )
+            )"""  
                         
             ray_angle += DELTA_ANGLE
     
