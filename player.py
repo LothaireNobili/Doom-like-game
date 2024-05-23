@@ -9,6 +9,20 @@ class Player:
         self.angle = PLAYER_INIT_ANGLE
         self.speed = PLAYER_MOV_SPEED
         self.rot_speed = PLAYER_ROT_SPEED
+        self.shot = False
+    
+    def single_fire_event(self, event):
+        if event.type == pg.MOUSEBUTTONDOWN:
+            if event.button == 1 and not self.shot and not self.game.weapon.reloading:
+                self.game.sound.shotgun.play()
+                self.shot = True
+                self.game.weapon.reloading = True
+        
+        #saving that for continuous fire
+        #if event.type == pg.MOUSEBUTTONDOWN:
+        #    self.shot = True
+        #if event.type == pg.MOUSEBUTTONUP:
+        #    self.shot = False
     
     def move(self):
         sin_a = math.sin(self.angle)
