@@ -20,6 +20,8 @@ class Game:
         self.delta_time = 1
         self.new()
         
+        self.debug_mode = 1 # 0 = no debug, 1 = 2D map overlay, 2 = 2D view
+        
     def new(self):
         self.map = Map(self)
         self.player = Player(self)
@@ -39,11 +41,19 @@ class Game:
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
         
     def draw(self):
-        #self.screen.fill('black')
-        self.object_renderer.draw()
-        self.weapon.draw() 
-        #self.map.draw()
-        #self.player.draw()
+        if self.debug_mode <= 1:
+            self.object_renderer.draw()
+            self.weapon.draw() 
+                        
+        if self.debug_mode >= 1:
+            if self.debug_mode == 2:
+                self.screen.fill('black')
+            self.map.debug_draw()
+            self.player.debug_draw()
+            self.object_renderer.debug_draw()
+        
+        
+        #kinda dirty but is enough for debug
         
     def check_events(self):
         for event in pg.event.get():

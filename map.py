@@ -35,10 +35,10 @@ class Map:
                 if tile:
                     self.world_map[(x, y)] = tile
         
-    def draw(self):
+    def debug_draw(self):
         [pg.draw.rect(
             self.game.screen,   #where
-            'red',              #color        
+            'green',              #color        
             (pos[0] * TILE_SIZE, pos[1] * TILE_SIZE, TILE_SIZE, TILE_SIZE), #rectangle pos and dim
             2)                #border width 
             for pos in self.world_map

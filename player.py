@@ -1,6 +1,7 @@
 from settings import *
 import pygame as pg
 import math
+from settings import TILE_SIZE
 
 class Player:
     def __init__(self, game):
@@ -64,13 +65,13 @@ class Player:
         if self.check_wall(int(self.x), int(self.y + dy * scale)):
             self.y += dy
     
-    def draw(self):
+    def debug_draw(self):
         pg.draw.line(
             self.game.screen, 
             'white', 
-            (self.x * 100, self.y * 100),        
-            (self.x * 100 + WIDTH * math.cos(self.angle),
-            self.y * 100 + WIDTH * math. sin(self.angle)),
+            (self.x * TILE_SIZE, self.y * TILE_SIZE),        
+            (self.x * TILE_SIZE + WIDTH * math.cos(self.angle),
+            self.y * TILE_SIZE + WIDTH * math. sin(self.angle)),
             2
         )
         

@@ -12,6 +12,10 @@ class ObjectRenderer:
     def draw(self):
         self.draw_background()
         self.render_game_object()    
+    
+    def debug_draw(self):
+        for npc in self.game.object_handler.npc_list:
+            npc.draw_ray_cast() #draw debug
         
     def draw_background(self):
         #skybox
